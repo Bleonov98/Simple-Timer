@@ -21,8 +21,9 @@ public:
 
     void Load(std::string font, unsigned int fontSize);
 
-    void RenderText(std::string text, glm::vec2 position, float scale = 1.0f, glm::vec3 color = glm::vec3(1.0f));
+    void RenderText(std::string text, glm::vec2 position, float scale = 1.0f);
 
+    glm::vec3 colour = glm::vec3(1.0f);
 private:
 
     std::map<char, Character> Characters;

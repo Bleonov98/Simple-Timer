@@ -6,7 +6,7 @@
 #include "Program.h"
 
 // settings
-const unsigned int SCR_WIDTH = 1600, SCR_HEIGHT = 900;
+const unsigned int SCR_WIDTH = 960, SCR_HEIGHT = 540;
 unsigned int newWidth = 0, newHeight = 0;
 bool screenSizesChanged = false;
 
@@ -51,7 +51,8 @@ int main() {
 
 	while (!glfwWindowShouldClose(window))
 	{
-		glClearColor(0.0f, 0.05f, 0.11f, 1.0f);
+		timer.appTheme == darkTheme ? glClearColor(0.0f, 0.05f, 0.11f, 1.0f) : glClearColor(1.0f, 1.00f, 1.00f, 1.0f);
+
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		float currentFrame = static_cast<float>(glfwGetTime());

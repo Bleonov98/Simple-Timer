@@ -87,11 +87,11 @@ void TextRenderer::Load(std::string font, unsigned int fontSize)
     FT_Done_FreeType(ft);
 }
 
-void TextRenderer::RenderText(std::string text, glm::vec2 position, float scale, glm::vec3 color)
+void TextRenderer::RenderText(std::string text, glm::vec2 position, float scale)
 {
     // activate corresponding render state	
     ResourceManager::GetShader("textShader").Use();
-    ResourceManager::GetShader("textShader").SetVector3f("textColor", color);
+    ResourceManager::GetShader("textShader").SetVector3f("textColor", colour);
 
     glActiveTexture(GL_TEXTURE0);
     glBindVertexArray(this->VAO);

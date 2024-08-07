@@ -5,6 +5,7 @@
 #include <GLFW/glfw3.h>
 
 #include <iostream>
+#include <memory>
 
 #include "ResourceManager.h"
 #include "TextRenderer.h"
@@ -13,6 +14,11 @@
 enum Page {
 	mainPage,
 	settingsPage,
+};
+
+enum AppTheme {
+	darkTheme,
+	lightTheme
 };
 
 class Program
@@ -35,6 +41,7 @@ public:
 
 	// Render
 	void Render(float dt);
+	void ToggleTheme();
 
 	// Utility
 	void SetScreenSize(unsigned int width, unsigned int height);
@@ -44,6 +51,7 @@ public:
 	bool Keys[1024], KeysProcessed[1024], mouseKeys[8], mKeysProcessed[8];
 	char inputChar;
 	double xMouse, yMouse, xCursor, yCursor;
+	AppTheme appTheme = darkTheme;
 
 private:
 
@@ -55,7 +63,8 @@ private:
 	glm::mat4 view;
 
 	// objects
-	std::vector<HUDobject> objectList;
+	std::vector<std::shared_ptr<HUDobject>> hudList;
+	std::vector<std::shared_ptr<Button>> buttonList;
 };
 
 #endif // !GAME_H

@@ -2,6 +2,8 @@
 #define TEXTURE2D_H
 
 #include <glad/glad.h>
+#include <glm/glm.hpp>
+
 #include "stb_image.h"
 
 class Texture2D
@@ -18,6 +20,7 @@ public:
     void SetAlpha(bool alpha) { this->alpha = alpha; }
     void SetFormatAlpha() { imgFormat = intFormat = GL_RGBA; }
 
+    glm::vec2 GetSize() { return glm::vec2(width, height); }
 
 private:
 
