@@ -34,6 +34,7 @@
     <ClCompile Include="TextRenderer.cpp" />
     <ClCompile Include="Texture2D.cpp" />
     <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="TmObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HUD.h" />
@@ -43,6 +44,7 @@
     <ClInclude Include="TextRenderer.h" />
     <ClInclude Include="Texture2D.h" />
     <ClInclude Include="Timer.h" />
+    <ClInclude Include="TmObject.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

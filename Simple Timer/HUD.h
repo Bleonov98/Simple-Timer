@@ -29,6 +29,8 @@ public:
 
 	~HUDobject() { glDeleteVertexArrays(1, &this->VAO); }
 
+	bool wColour = true;
+
 protected:
 
 	int width, height;
@@ -49,7 +51,12 @@ public:
 	Button(unsigned int width, unsigned int height, Texture2D texture) : HUDobject(width, height, texture) {};
 	
 	bool ButtonCollision(glm::vec2 clickPos);
-	void SetFunction(std::function<void()> func) { this->function = func; }
+
+	template<typename Func, typename Obj, typename... Args>
+	void SetFunction(Func&& func, Obj&& obj, Args&&... args) {
+		function = std::bind(std::forward<Func>(func), std::forward<Obj>(obj), std::forward<Args>(args)...);
+	}
+	void CallFunction() { function(); }
 
 private:
 

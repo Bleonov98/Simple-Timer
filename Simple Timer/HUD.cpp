@@ -39,7 +39,9 @@ void HUDobject::DrawHUD(glm::vec2 pos)
 {
     ResourceManager::GetShader("objectShader").Use();
     ResourceManager::GetShader("objectShader").SetMatrix4("projection", projection);
+
     ResourceManager::GetShader("objectShader").SetVector3f("objectColour", colour);
+    ResourceManager::GetShader("objectShader").SetBool("wColour", wColour);
 
     float vertices[] = {
         pos.x,          pos.y + size.y, 0.0f, 1.0f,

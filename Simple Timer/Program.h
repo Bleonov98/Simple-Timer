@@ -41,7 +41,10 @@ public:
 
 	// Render
 	void Render(float dt);
+
+	// button functions
 	void ToggleTheme();
+	void ChangePage(Page page);
 
 	// Utility
 	void SetScreenSize(unsigned int width, unsigned int height);
@@ -63,8 +66,16 @@ private:
 	glm::mat4 view;
 
 	// objects
+	std::vector<std::shared_ptr<HUDobject>> backgroundList;
+
 	std::vector<std::shared_ptr<HUDobject>> hudList;
+	std::vector<std::shared_ptr<HUDobject>> mainHudList;
+	std::vector<std::shared_ptr<HUDobject>> settingsHudList;
+
+
 	std::vector<std::shared_ptr<Button>> buttonList;
+	std::vector<std::shared_ptr<Button>> mainButtonList;
+	std::vector<std::shared_ptr<Button>> settingsButtonList;
 };
 
 #endif // !GAME_H
